@@ -6,11 +6,14 @@ A collection of utilities for working with lists.
 Finds the largest value in the list.
 """
 def largest(lst):
-    max = lst[0]
-    for i in range(1, len(lst)):
-        if lst[i] > max:
-            max = lst[i]
-    return max
+    idx = find_largest(lst, 0)
+    return lst[idx]
+
+    # max = lst[0]
+    # for i in range(1, len(lst)):
+    #     if lst[i] > max:
+    #         max = lst[i]
+    # return max
 
 """
 Sorts the list according to the "natural order" of the values.
@@ -88,14 +91,36 @@ def search(lst, target):
     return found
 
 """
+Function to get the average from a list of numerical values
+"""
+def average(lst):
+
+    if not lst:
+        return 0
+    
+    total = 0
+    for i in lst:
+        if isinstance (i, (int, float)):
+            total += i
+
+    return total / len(lst)
+
+"""
 Some test cases for the sort and search functions
 """
 def main():
-    a = [5, 7, 1, 8, 3]
+    # a = [5, 7, 1, 8, 3]
+    a = [4, 6, 2]
     print(largest(a))
     sort(a, True)
     print(a)
     print(search(a, 7))
+    
+
+    print(average(a))
+
+
+
 
 if __name__ == "__main__":
   main()
